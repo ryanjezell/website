@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Warcraft</title>
+</head>
+
+<style>
+    /* Center the video */
+    .video-container {
+      display: flex;
+      justify-content: center;
+    }
+
+     /* Adds a simple background */
+    body {
+      background-image: url("https://pixelz.cc/wp-content/uploads/2018/10/world-of-warcraft-the-dark-portal-uhd-4k-wallpaper.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .link-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.link-container a {
+  display: inline-block;
+  padding: 5px;
+  margin-right: 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+</style>
+<body>
+	<h1><center>Hourly Warcraft</center></h1>
+	<div class="video-container">
+		<iframe id="player" width="780" height="480" src="" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<script>
+		// Define video ID list for each hour of the day
+		const videoIds = [
+			"3p8jLMz0lu8", // 12am-1am, Taverns
+			"bQXbsVQotFc", // 1am-2am, Arathi/STV
+			"jpb1nH2q_0k", // 2am-3am, Duskwood
+			"oSF4keDUM5E", // 3am-4am, Tirisfal
+			"HKnBT3sWUjg", // 4am-5am, Ghostlands
+			"YfMn7UfZzGc", // 5am-6am, Dun Morogh
+			"ragRR5r7k9w", // 6am-7am, Durotar
+			"MW4fASDkWXA", // 7am-8am, Elwynn
+			"q8PqIJBeuT0", // 8am-9am, Mulgore
+			"PWTSK5waNs", // 9am-10am, Grizzly Hills
+			"50EOOzhovjg", // 10am-11am, Valley of the Four Winds
+			"K3hjVijzrtM", // 11am-12pm, Boralus
+			"YONdeDeSgrQ", // 12pm-1pm, Barrens
+			"FU_yNE2MMOU", // 1pm-2pm, Eversong Woods
+			"L_QA-ZUAOHk", // 2pm-3pm, Orgrimmar
+			"roMWEeV2P4U", // 3pm-4pm, Stormwind
+			"HrvA2eAHcJ4", // 5pm-6pm, Horde Taverns
+			"BV7mKCgKhZY", // 6pm-7pm, Dalaran (Northrend)
+			"4lrA6af0SJs", // 7pm-8pm, Nagrand
+			"ACgoXvkhlPE", // 8pm-9pm, Suramar
+			"xTPn_Nk_KrM", // 9pm-10pm, Ashenvale
+			"a2FUqpDdvH8", // 10pm-11pm, Darkmoon Faire
+			"4KFZe4iUgdg" // 11pm-12am, Drustvar
+		];
+
+		// Get the current hour of the day
+		const currentHour = new Date().getHours();
+
+		// Get the video ID for the current hour
+		const videoId = videoIds[currentHour];
+
+		// Set the video player's source to the YouTube video with the current video ID
+		document.getElementById("player").src = `https://www.youtube.com/embed/${videoId}`;
+
+        // Update the video ID based on the current time
+    function updateVideo() {
+        const now = new Date();
+        const hour = now.getHours();
+        const videoIndex = hour % videos.length;
+        const videoId = videos[videoIndex];
+        player.loadVideoById(videoId);
+        }
+
+// Call the updateVideo function every minute
+setInterval(updateVideo, 60 * 1000);
+	</script>
+
+<div class="link-container">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+  
+</body>
+</html>

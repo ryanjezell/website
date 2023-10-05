@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Geddy Lee Rocks!</title>
+<style>
+body {
+  background-color: black;
+  color: lime;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+h1 {
+  text-align: center;
+  font-size: 48px;
+}
+p {
+  text-align: center;
+  font-size: 24px;
+}
+</style>
+<script>
+// A function to generate a random number between min and max
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// An array of youtube video ids of Geddy Lee
+var videos = ["cNJtrqb4Pl0", "RmTOAUEZRBo", "ZcFGrWjOX0E", "8Jm4LoOaAWI"];
+
+// A function to display a random video of Geddy Lee
+function showVideo() {
+  // Get a random index from the videos array
+  var index = getRandom(0, videos.length - 1);
+  // Get the video id from the array
+  var videoId = videos[index];
+  // Create an iframe element to embed the video
+  var iframe = document.createElement("iframe");
+  // Set the src attribute of the iframe to the youtube video url
+  iframe.src = "https://www.youtube.com/embed/" + videoId;
+  // Set some attributes of the iframe for styling and responsiveness
+  iframe.width = "560";
+  iframe.height = "315";
+  iframe.frameborder = "0";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowfullscreen = true;
+  // Get the div element where the video will be displayed
+  var div = document.getElementById("video");
+  // Clear any previous content in the div
+  div.innerHTML = "";
+  // Append the iframe to the div
+  div.appendChild(iframe);
+}
+</script>
+</head>
+<body onload="showVideo()">
+<h1>Geddy Lee Rocks!</h1>
+<p>Enjoy a random video of the legendary bassist and vocalist of Rush!</p>
+<div id="video"></div>
+</body>
+</html>
